@@ -1,5 +1,7 @@
-FROM rabbitmq:3.5.3-management
-MAINTAINER Dimitris Kapanidis dimitris.kapanidis@harbur.io
+FROM rabbitmq:3.6.10-management
+MAINTAINER xin.zhangwebapi@ele.me
+
+RUN rabbitmq-plugins enable --offline rabbitmq_sharding
 
 COPY rabbitmq-cluster /usr/local/bin/
 COPY pre-entrypoint.sh /

@@ -1,5 +1,5 @@
 rabbit1:
-  image: harbur/rabbitmq-cluster
+  image: ahjdzx/rabbitmq-cluster
   hostname: rabbit1
   environment:
     - ERLANG_COOKIE=abcdefg
@@ -7,7 +7,7 @@ rabbit1:
     - "5672:5672"
     - "15672:15672"
 rabbit2:
-  image: harbur/rabbitmq-cluster
+  image: ahjdzx/rabbitmq-cluster
   hostname: rabbit2
   links:
     - rabbit1
@@ -19,7 +19,7 @@ rabbit2:
     - "5673:5672"
     - "15673:15672"
 rabbit3:
-  image: harbur/rabbitmq-cluster
+  image: ahjdzx/rabbitmq-cluster
   hostname: rabbit3
   links:
     - rabbit1

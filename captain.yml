@@ -1,3 +1,0 @@
-rabbitmq-cluster:
-  build: Dockerfile
-  image: harbur/rabbitmq-cluster

@@ -2,10 +2,10 @@ Docker images to run RabbitMQ cluster. It extends the official image with a rabb
 
 # Building
 
-Once you clone the project locally use [captain](https://github.com/harbur/captain) to build the image or do with docker:
+Once you clone the project locally to build the image with docker:
 
 ```
-docker build -t harbur/rabbitmq-cluster .
+docker build -t ahjdzx/rabbitmq-cluster .
 ```
 
 # Running with docker-compose
@@ -20,7 +20,7 @@ By default 3 nodes are started up this way:
 
 ```
 rabbit1:
-  image: harbur/rabbitmq-cluster
+  image: ahjdzx/rabbitmq-cluster
   hostname: rabbit1
   environment:
     - ERLANG_COOKIE=abcdefg
@@ -28,7 +28,7 @@ rabbit1:
     - "5672:5672"
     - "15672:15672"
 rabbit2:
-  image: harbur/rabbitmq-cluster
+  image: ahjdzx/rabbitmq-cluster
   hostname: rabbit2
   links:
     - rabbit1
@@ -41,7 +41,7 @@ rabbit2:
     - "5673:5672"
     - "15673:15672"
 rabbit3:
-  image: harbur/rabbitmq-cluster
+  image: ahjdzx/rabbitmq-cluster
   hostname: rabbit3
   links:
     - rabbit1
@@ -62,3 +62,4 @@ Once cluster is up:
 # Credits
 
 * Inspired by https://github.com/bijukunjummen/docker-rabbitmq-cluster
+* Forked by https://github.com/harbur/docker-rabbitmq-cluster
