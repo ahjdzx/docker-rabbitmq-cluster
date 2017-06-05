@@ -1,4 +1,4 @@
-FROM rabbitmq:3.6.10-management
+FROM rabbitmq:3.6.8-management
 MAINTAINER xin.zhangwebapi@ele.me
 
 RUN rabbitmq-plugins enable --offline rabbitmq_sharding
