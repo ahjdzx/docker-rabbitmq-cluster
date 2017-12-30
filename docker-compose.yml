@@ -29,3 +29,4 @@ rabbit3:
     - CLUSTER_WITH=rabbit1
   ports:
     - "5674:5672"
+    - "15674:15672"
