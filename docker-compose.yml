@@ -1,32 +1,74 @@
-rabbit1:
+node1:
   image: ahjdzx/rabbitmq-cluster
-  hostname: rabbit1
+  hostname: node1 
   environment:
     - ERLANG_COOKIE=abcdefg
+  ports:
+    - "5671:5672"
+    - "15671:15672"
+node2:
+  image: ahjdzx/rabbitmq-cluster
+  hostname: node2 
+  links:
+    - node1 
+  environment:
+    - ERLANG_COOKIE=abcdefg
+    - CLUSTER_WITH=node1
+    - ENABLE_RAM=true
   ports:
     - "5672:5672"
     - "15672:15672"
-rabbit2:
+node3:
   image: ahjdzx/rabbitmq-cluster
-  hostname: rabbit2
+  hostname: node3 
   links:
-    - rabbit1
+    - node1 
+    - node2 
   environment:
     - ERLANG_COOKIE=abcdefg
-    - CLUSTER_WITH=rabbit1
-    - ENABLE_RAM=true
+    - CLUSTER_WITH=node1
   ports:
     - "5673:5672"
     - "15673:15672"
-rabbit3:
+
+node4:
   image: ahjdzx/rabbitmq-cluster
-  hostname: rabbit3
-  links:
-    - rabbit1
-    - rabbit2
+  hostname: node4
   environment:
     - ERLANG_COOKIE=abcdefg
-    - CLUSTER_WITH=rabbit1
   ports:
     - "5674:5672"
     - "15674:15672"
+node5:
+  image: ahjdzx/rabbitmq-cluster
+  hostname: node5 
+  links:
+    - node4
+  environment:
+    - ERLANG_COOKIE=abcdefg
+    - CLUSTER_WITH=node4
+    - ENABLE_RAM=true
+  ports:
+    - "5675:5672"
+    - "15675:15672"
+
+node6:
+  image: ahjdzx/rabbitmq-cluster
+  hostname: node6
+  environment:
+    - ERLANG_COOKIE=abcdefg
+  ports:
+    - "5676:5672"
+    - "15676:15672"
+node7:
+  image: ahjdzx/rabbitmq-cluster
+  hostname: node7 
+  links:
+    - node6
+  environment:
+    - ERLANG_COOKIE=abcdefg
+    - CLUSTER_WITH=node6
+  ports:
+    - "5677:5672"
+    - "15677:15672"
+     
