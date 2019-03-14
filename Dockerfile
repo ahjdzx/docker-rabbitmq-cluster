@@ -6,8 +6,8 @@ RUN rabbitmq-plugins enable --offline rabbitmq_sharding \
     && rabbitmq-plugins enable --offline rabbitmq_federation \ 
     && rabbitmq-plugins enable --offline rabbitmq_federation_management \ 
     && rabbitmq-plugins enable --offline rabbitmq_random_exchange \ 
-    # && rabbitmq-plugins enable --offline rabbitmq_shovel \ 
-    # && rabbitmq-plugins enable --offline rabbitmq_shovel_management \ 
+    && rabbitmq-plugins enable --offline rabbitmq_shovel \ 
+    && rabbitmq-plugins enable --offline rabbitmq_shovel_management \ 
     && rabbitmq-plugins enable --offline rabbitmq_tracing \
     && rabbitmq-plugins enable --offline rabbitmq_event_exchange \ 
     && rabbitmq-plugins enable rabbitmq_mqtt
